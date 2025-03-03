@@ -1,47 +1,46 @@
 import streamlit as st
-import nltk
-import os
-import nltk
-import os
-
-nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-if not os.path.exists(nltk_data_path):
-    os.makedirs(nltk_data_path)
-
-nltk.download('punkt', download_dir=nltk_data_path)
-nltk.data.path.append(nltk_data_path)
-
-
-from newspaper import Article
+import requests
+from bs4 import BeautifulSoup
 from textblob import TextBlob
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
-import os
 import nltk
+import os
 
+# Setup NLTK 'punkt' tokenizer
 nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+if not os.path.exists(nltk_data_path):
+    os.makedirs(nltk_data_path)
 nltk.download('punkt', download_dir=nltk_data_path)
 nltk.data.path.append(nltk_data_path)
 
 
-# Function to extract article text
+# Function to extract article text using BeautifulSoup
 def get_article_text(url):
     try:
-        article = Article(url)
-        article.download()
-        article.parse()
-        return article.text
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Try to extract all paragraph texts
+        paragraphs = soup.find_all('p')
+        article_text = ' '.join([para.get_text() for para in paragraphs])
+        
+        if not article_text.strip():
+            return "Error: Couldn't extract text from the URL."
+
+        return article_text
     except Exception as e:
         return f"Error fetching article: {e}"
 
 
 # Function to summarize text
-def summarize_text(text):
+def summarize_text(text, num_sentences=5):
     try:
         parser = PlaintextParser.from_string(text, Tokenizer("english"))
         summarizer = LsaSummarizer()
-        summary_sentences = summarizer(parser.document, 5)
+        summary_sentences = summarizer(parser.document, num_sentences)
         summary = " ".join(str(sentence) for sentence in summary_sentences)
         return summary
     except Exception as e:
