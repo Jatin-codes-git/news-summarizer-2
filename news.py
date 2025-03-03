@@ -89,3 +89,5 @@ if st.button("🚀 Summarize and Analyze"):
                     st.write(sentiment)
     else:
         st.warning("⚠️ Please enter a valid URL.")
+        fix: added nltk punkt downloader code
+
