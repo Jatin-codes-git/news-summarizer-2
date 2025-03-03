@@ -1,6 +1,6 @@
 streamlit
-newspaper3k
+newspaper3k==0.2.8
 textblob
 sumy
-lxml
+lxml==4.9.3
 nltk
