@@ -1,6 +1,7 @@
 streamlit
-newspaper3k==0.2.8
+requests
+beautifulsoup4
 textblob
 sumy
-lxml==4.9.3
 nltk
+
