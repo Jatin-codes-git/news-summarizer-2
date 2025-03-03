@@ -4,5 +4,3 @@ beautifulsoup4
 textblob
 sumy
 nltk
-
-chore: added nltk to requirements
