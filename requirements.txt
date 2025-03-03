@@ -5,3 +5,4 @@ textblob
 sumy
 nltk
 
+chore: added nltk to requirements
