@@ -8,10 +8,18 @@ from sumy.summarizers.lsa import LsaSummarizer
 import nltk
 import os
 
-# Setup NLTK 'punkt' tokenizer
 nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-nltk.download('punkt', download_dir=nltk_data_path)
+if not os.path.exists(nltk_data_path):
+    os.mkdir(nltk_data_path)
+
 nltk.data.path.append(nltk_data_path)
+
+# Download punkt if not already present
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    nltk.download("punkt", download_dir=nltk_data_path)
+
 
 
 
