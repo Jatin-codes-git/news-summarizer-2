@@ -7,7 +7,7 @@ It's built using **NLP libraries** like `newspaper3k`, `Sumy`, and `TextBlob`.
 
 ## 🌐 Live Demo
 
-🔗 [Check out the live app here!]([https://your-app-url.streamlit.app/](https://news-summarizer-2-sg8rsnnccpwappn3czwwvxo.streamlit.app/))
+🔗 [Check out the live app here!](https://news-summarizer-2-sg8rsnnccpwappn3czwwvxo.streamlit.app/))
 
 ---
 ## 🚀 Features
