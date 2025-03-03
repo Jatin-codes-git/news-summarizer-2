@@ -1,9 +1,22 @@
 import streamlit as st
+import nltk
+nltk.download('punkt')
+import os
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.data.path.append(nltk_data_path)
+
 from newspaper import Article
 from textblob import TextBlob
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
+import os
+import nltk
+
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.data.path.append(nltk_data_path)
 
 
 # Function to extract article text
