@@ -22,15 +22,9 @@ It's built using **NLP libraries** like `newspaper3k`, `Sumy`, and `TextBlob`.
 
 ## 📸 Demo Screenshot
 
-![News Summarizer Screenshot](https://github.com/your-username/news-summarizer-sentiment/blob/main/assets/screenshot.png)
-
----
-
-## 🎥 Demo Video
-
-[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
-
-> 📌 Replace `VIDEO_ID` with your uploaded YouTube video ID.
+![News Summarizer Screenshot](Screenshot1.png)
+![News Summarizer Screenshot](Screenshot2.png)
+![News Summarizer Screenshot](Screenshot3.png)
 
 ---
 
